@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Marquee } from "@/components/ui/marquee";
 
 const marqueeImages = [
@@ -39,14 +40,17 @@ export default function HeroSection() {
       <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-[30px] w-full max-w-4xl mx-auto">
         
         {/* A. Interactive Primary Action Button Layer */}
-        <button className="flex items-center justify-center w-[355.5px] rounded-[37.5px] pt-[15px] pr-[31.5px] pb-[15px] pl-[31.5px] gap-[15px] bg-[#000000] hover:bg-black/90 transition-colors">
+        <Link 
+          href="/generate"
+          className="flex items-center justify-center w-[355.5px] rounded-[37.5px] pt-[15px] pr-[31.5px] pb-[15px] pl-[31.5px] gap-[15px] bg-[#000000] hover:bg-black/90 transition-colors"
+        >
           <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-[#FFFFFF]">
             <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
           </svg>
           <span className="font-sans font-semibold text-[24px] leading-[36px] tracking-[-0.04em] text-[#FFFFFF]">
             Generate Free AI Frame
           </span>
-        </button>
+        </Link>
 
         {/* B. Customer Social Proof Badge Wrapper Layer */}
         <div className="flex items-center w-[314px] h-[58px] gap-[11px]">
