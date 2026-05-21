@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useGenerateContext } from "./GenerateContext";
 import { CAREER_ROLES } from "@/lib/ambitionsData";
@@ -15,6 +16,11 @@ export default function StepSix() {
     deliveryName, deliveryPhone, deliveryAddress,
     setUploadedImage
   } = useGenerateContext();
+
+  const [orderId, setOrderId] = useState("");
+  useEffect(() => {
+    setOrderId(`FF-${Math.floor(10000 + Math.random() * 90000)}`);
+  }, []);
 
   const careerObj = selectedCareer ? CAREER_ROLES[selectedCareer] : null;
   
@@ -90,10 +96,12 @@ export default function StepSix() {
                 className="bg-[#8CE827] hover:bg-[#7cd01f] text-white rounded-[12px] w-[52px] h-[52px] flex items-center justify-center cursor-pointer shadow-lg transition-all hover:scale-105 active:scale-95"
                 title="Share on WhatsApp"
               >
-                <img
+                <Image
                   src="/assets/icons/whatsapp_logo.svg"
                   alt="WhatsApp logo"
-                  className="w-[32px] h-[32px] object-contain"
+                  width={32}
+                  height={32}
+                  className="object-contain"
                 />
               </a>
 
@@ -331,7 +339,7 @@ export default function StepSix() {
               Order Placed Successfully!
             </h3>
             <p className="font-sans font-semibold text-[15px] text-[#10B981] mb-6">
-              Order ID: FF-{Math.floor(10000 + Math.random() * 90000)}
+              Order ID: {orderId || "FF-10020"}
             </p>
 
             <p className="font-sans font-medium text-[15px] text-[#64748B] leading-relaxed mb-8 max-w-[400px]">

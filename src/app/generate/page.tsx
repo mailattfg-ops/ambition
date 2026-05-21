@@ -5,13 +5,16 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { GenerateProvider } from "@/components/generate/GenerateContext";
-import StepOne from "@/components/generate/StepOne";
-import StepTwo from "@/components/generate/StepTwo";
-import StepThree from "@/components/generate/StepThree";
-import StepFour from "@/components/generate/StepFour";
-import StepFive from "@/components/generate/StepFive";
-import StepSix from "@/components/generate/StepSix";
+
+// Dynamically import steps to split the JavaScript bundle and improve initial page load performance
+const StepOne = dynamic(() => import("@/components/generate/StepOne"), { ssr: false });
+const StepTwo = dynamic(() => import("@/components/generate/StepTwo"), { ssr: false });
+const StepThree = dynamic(() => import("@/components/generate/StepThree"), { ssr: false });
+const StepFour = dynamic(() => import("@/components/generate/StepFour"), { ssr: false });
+const StepFive = dynamic(() => import("@/components/generate/StepFive"), { ssr: false });
+const StepSix = dynamic(() => import("@/components/generate/StepSix"), { ssr: false });
 
 const inter = Inter({
   subsets: ["latin"],

@@ -165,7 +165,7 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
           ) : (
             <div className="flex flex-col items-center justify-center py-10 w-full text-center border border-dashed border-slate-200 rounded-[20px] bg-slate-50/50">
               <span className="text-[16px] font-sans font-semibold text-slate-700">
-                No career roles found in this category matching "{searchQuery}"
+                No career roles found in this category matching &quot;{searchQuery}&quot;
               </span>
             </div>
           )}

@@ -95,7 +95,7 @@ export default function ShowcaseSection() {
       {/* 2. Main Title Heading: Geist SemiBold, 72px, 100% line height, -4% tracking */}
       <div className="w-full max-w-[1000px] px-6 text-center mb-16">
         <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
-          Showcase your child's<br />future ambition proudly on<br />your wall or study table.
+          Showcase your child&apos;s<br />future ambition proudly on<br />your wall or study table.
         </h2>
       </div>
 

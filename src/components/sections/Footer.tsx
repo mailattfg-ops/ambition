@@ -82,7 +82,7 @@ export default function Footer() {
               />
             </div>
             <p className="font-sans font-normal text-[16px] leading-[150%] tracking-[-0.02em] text-[#FFFFFF]/70 select-none">
-              See your child's future with AI. Magical ambition frames in seconds.
+              See your child&apos;s future with AI. Magical ambition frames in seconds.
             </p>
           </div>
 
