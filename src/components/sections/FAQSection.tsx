@@ -88,33 +88,46 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="relative w-full flex flex-col items-center pt-24 pb-32 bg-[#F4F4F5]/50 overflow-hidden select-none">
+    <section className="relative w-full pt-24 pb-32 overflow-hidden select-none" style={{ backgroundColor: "#F0F0F0" }}>
+      {/* Figma Spec: Subtle dot-pattern texture overlay blending with background color */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: "url('/assets/images/bg_for_footer.png')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
+          backgroundBlendMode: "multiply",
+          backgroundColor: "#F0F0F0",
+          opacity: 0.9,
+        }}
+      />
       
-      {/* 1. Sub-label Pill: Geist Regular, 24px, #000000, 100% line height, -4% tracking */}
-      <div className="flex items-center justify-center rounded-[31px] bg-[#EAEAEA] py-[8px] px-[22px] mb-6">
-        <span className="font-sans font-normal text-[24px] leading-none tracking-[-0.04em] text-[#000000]">
-          How it works
-        </span>
-      </div>
+      <div className="relative z-10 w-full flex flex-col items-center">
+        {/* 1. Sub-label Pill: Geist Regular, 24px, #000000, 100% line height, -4% tracking */}
+        <div className="flex items-center justify-center rounded-[31px] bg-[#EAEAEA] py-[8px] px-[22px] mb-6">
+          <span className="font-sans font-normal text-[24px] leading-none tracking-[-0.04em] text-[#000000]">
+            How it works
+          </span>
+        </div>
 
-      {/* 2. Main Title Heading: Geist SemiBold, 72px, #000000, 100% line height, -4% tracking */}
-      <div className="w-full max-w-[900px] px-6 text-center mb-16">
-        <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
-          Everything parents ask<br />before generating.
-        </h2>
-      </div>
+        {/* 2. Main Title Heading: Geist SemiBold, 72px, #000000, 100% line height, -4% tracking */}
+        <div className="w-full max-w-[900px] px-6 text-center mb-16">
+          <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
+            Everything parents ask<br />before generating.
+          </h2>
+        </div>
 
-      {/* 3. Vertically stacked FAQ list */}
-      <div className="w-full max-w-[900px] px-6 flex flex-col gap-4">
-        {faqs.map((faq, index) => (
-          <FAQItem
-            key={index}
-            question={faq.question}
-            answer={faq.answer}
-          />
-        ))}
+        {/* 3. Vertically stacked FAQ list */}
+        <div className="w-full max-w-[900px] px-6 flex flex-col gap-4">
+          {faqs.map((faq, index) => (
+            <FAQItem
+              key={index}
+              question={faq.question}
+              answer={faq.answer}
+            />
+          ))}
+        </div>
       </div>
-
     </section>
   );
 }

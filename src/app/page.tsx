@@ -6,7 +6,6 @@ import ShowcaseSection from "@/components/sections/ShowcaseSection";
 import InActionSection from "@/components/sections/InActionSection";
 import ReviewsSection from "@/components/sections/ReviewsSection";
 import FAQSection from "@/components/sections/FAQSection";
-import SchoolSection from "@/components/sections/SchoolSection";
 import Footer from "@/components/sections/Footer";
 
 export default function HomePage() {
@@ -20,7 +19,6 @@ export default function HomePage() {
       <InActionSection />
       <ReviewsSection />
       <FAQSection />
-      <SchoolSection />
       <Footer />
     </main>
   );

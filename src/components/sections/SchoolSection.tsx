@@ -10,8 +10,20 @@ import Image from "next/image";
  */
 export default function SchoolSection() {
   return (
-    <section id="schools" className="relative w-full bg-[#173BA6] py-20 md:py-28 overflow-hidden select-none">
-      <div className="max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12">
+    <section id="schools" className="relative w-full py-20 md:py-28 overflow-hidden select-none" style={{ backgroundColor: "#153293" }}>
+      {/* Figma Spec: Subtle dot-pattern texture overlay blending with background color */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-0"
+        style={{
+          backgroundImage: "url('/assets/images/bg_for_footer.png')",
+          backgroundRepeat: "repeat",
+          backgroundSize: "auto",
+          backgroundBlendMode: "multiply",
+          backgroundColor: "#153293",
+          opacity: 0.9,
+        }}
+      />
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-12">
         
         {/* Left Side: Brand Text & Descriptions */}
         <div className="flex-1 flex flex-col items-start text-left max-w-[620px]">
@@ -36,75 +48,15 @@ export default function SchoolSection() {
           </p>
         </div>
 
-        {/* Right Side: Triple Overlapping Fluid Portrait Cards */}
-        <div className="relative flex justify-center items-center w-[320px] md:w-[480px] lg:w-[640px] h-[260px] md:h-[380px] lg:h-[480px] shrink-0 mt-8 lg:mt-0">
-          
-          {/* 1. Left Card: Lawyer (background depth) */}
-          <div 
-            className="absolute rounded-[16px] md:rounded-[20px] overflow-hidden border-[4px] md:border-[6px] border-[#FFFFFF] shadow-2xl transition-all duration-500 ease-out hover:scale-[1.12] hover:z-50 hover:rotate-0 hover:shadow-black/50 cursor-pointer origin-bottom-left"
-            style={{
-              width: "42%",
-              height: "75%",
-              top: "15%",
-              left: "5%",
-              transform: "rotate(-12deg)",
-              zIndex: 10
-            }}
-          >
-            <Image
-              src="/assets/images/new/lawyer.jpg"
-              alt="Lawyer child portrait frame"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 140px, 280px"
-              priority
-            />
-          </div>
-
-          {/* 2. Right Card: Archeologist (background depth) */}
-          <div 
-            className="absolute rounded-[16px] md:rounded-[20px] overflow-hidden border-[4px] md:border-[6px] border-[#FFFFFF] shadow-2xl transition-all duration-500 ease-out hover:scale-[1.12] hover:z-50 hover:rotate-0 hover:shadow-black/50 cursor-pointer origin-bottom-right"
-            style={{
-              width: "42%",
-              height: "75%",
-              top: "10%",
-              left: "53%",
-              transform: "rotate(8deg)",
-              zIndex: 20
-            }}
-          >
-            <Image
-              src="/assets/images/new/archeologist.jpg"
-              alt="Archeologist child portrait frame"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 140px, 280px"
-              priority
-            />
-          </div>
-
-          {/* 3. Middle Card: Astronaut (front-most depth) */}
-          <div 
-            className="absolute rounded-[16px] md:rounded-[20px] overflow-hidden border-[4px] md:border-[6px] border-[#FFFFFF] shadow-2xl transition-all duration-500 ease-out hover:scale-[1.12] hover:z-50 hover:rotate-0 hover:shadow-black/50 cursor-pointer origin-center"
-            style={{
-              width: "42%",
-              height: "75%",
-              top: "22%",
-              left: "29%",
-              transform: "rotate(-4deg)",
-              zIndex: 30
-            }}
-          >
-            <Image
-              src="/assets/images/new/astronaut.jpg"
-              alt="Astronaut child portrait frame"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 140px, 280px"
-              priority
-            />
-          </div>
-
+        {/* Right Side: Showcase Composite SVG */}
+        <div className="relative w-[320px] md:w-[480px] lg:w-[620px] h-[260px] md:h-[380px] lg:h-[450px] shrink-0 mt-8 lg:mt-0">
+          <Image
+            src="/assets/images/footer_img.svg"
+            alt="School portraits composite showcase"
+            fill
+            className="object-contain"
+            priority
+          />
         </div>
 
       </div>

@@ -150,9 +150,13 @@ export default function CareersSection() {
         <button
           className="flex items-center justify-center bg-[#000000] rounded-[25.84px] py-[12px] px-[28px] gap-[10px] hover:bg-black/90 hover:scale-105 active:scale-95 transition-all duration-300 shadow-md cursor-pointer select-none"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="shrink-0 text-white animate-pulse">
-            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z" />
-          </svg>
+          <Image
+            src="/assets/icons/starts.png"
+            alt="Stars icon"
+            width={18}
+            height={18}
+            className="shrink-0 object-contain animate-pulse"
+          />
           <span className="font-sans font-semibold text-[18px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF]">
             View all Careers
           </span>
