@@ -109,23 +109,7 @@ export default function ReviewsSection() {
         </div>
       </div>
 
-      {/* 4. Button */}
-      <div className="w-full flex justify-center mt-8 md:mt-12">
-        <button
-          className="flex items-center justify-center bg-[#000000] rounded-[37.5px] md:rounded-[25.84px] py-[10px] md:py-[12px] px-[20px] md:px-[28px] gap-[8px] md:gap-[10px] hover:bg-black/90 hover:scale-[1.04] active:scale-95 transition-all duration-300 shadow-md cursor-pointer select-none"
-        >
-          <Image
-            src="/assets/icons/starts.png"
-            alt="Stars icon"
-            width={18}
-            height={18}
-            className="shrink-0 object-contain w-[16px] h-[16px] md:w-[18px] md:h-[18px]"
-          />
-          <span className="font-sans font-semibold text-[15px] md:text-[18px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF]">
-            View all Careers
-          </span>
-        </button>
-      </div>
+
 
       {/* Embedded CSS for hiding scrollbars */}
       <style jsx global>{`
