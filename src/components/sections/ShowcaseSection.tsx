@@ -87,7 +87,7 @@ export default function ShowcaseSection() {
       {/* 1. Sub-label Pill */}
       <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px] mb-4 md:mb-6">
         <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
-          Dream Big
+          How it works
         </span>
       </div>
 

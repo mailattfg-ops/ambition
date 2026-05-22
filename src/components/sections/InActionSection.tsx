@@ -63,10 +63,10 @@ export default function InActionSection() {
       </div>
  
       {/* 2. H2 Header Title */}
-      <div className="w-full max-w-[900px] px-6 text-center mb-8 md:mb-16 z-20">
+      <div className="w-full max-w-[1000px] px-6 text-center mb-8 md:mb-16 z-20 mx-auto">
         <h2 className="font-sans font-semibold text-[28px] md:text-[50px] lg:text-[72px] leading-[1.1] md:leading-[100%] tracking-[-0.04em] text-[#000000]">
-          <span className="hidden md:inline">A glimpse of the wow<br />moment parents talk about.</span>
-          <span className="md:hidden">A glimpse of the wow moment parents talk about.</span>
+          <span className="hidden lg:inline">A glimpse of the wow<br />moment parents talk about.</span>
+          <span className="lg:hidden">A glimpse of the wow moment parents talk about.</span>
         </h2>
       </div>
  
