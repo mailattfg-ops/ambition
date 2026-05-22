@@ -10,14 +10,13 @@ interface MarqueeImageProps {
 
 function MarqueeImage({ src, alt }: MarqueeImageProps) {
   return (
-    <div className="relative w-[407px] h-[464px] rounded-[10px] overflow-hidden shrink-0 bg-gray-50 border border-gray-100">
+    <div className="relative w-full aspect-[407/464] rounded-[10px] overflow-hidden shrink-0 bg-gray-50 border border-gray-100">
       <Image
         src={src}
         alt={alt}
         fill
-        sizes="407px"
+        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 407px"
         className="object-cover rounded-[10px]"
-        priority
       />
     </div>
   );
@@ -46,56 +45,73 @@ export default function InActionSection() {
     { src: "/assets/images/marquee_6.jpg", alt: "Kid in pilot uniform" },
   ];
  
+  const mobileColumn = [
+    { src: "/assets/images/new/engineer.jpg", alt: "Engineer girl Burj Khalifa" },
+    { src: "/assets/images/new/astronaut.jpg", alt: "Astronaut girl space suit" },
+    { src: "/assets/images/new/lawyer.jpg", alt: "Lawyer girl court room" },
+    { src: "/assets/images/new/cricketer.jpg", alt: "Cricketer boy portrait" },
+  ];
+ 
   return (
-    <section className="relative w-full flex flex-col items-center pt-24 pb-32 bg-[#FFFFFF] overflow-hidden select-none">
+    <section className="relative w-full flex flex-col items-center pt-12 md:pt-24 pb-16 md:pb-32 bg-[#FFFFFF] overflow-hidden select-none">
       
-      {/* 1. Sub-label Pill: Geist Regular, 24px, #000000, 100% line height, -4% tracking */}
-      <div className="flex items-center justify-center rounded-[31px] bg-[#EAEAEA] py-[8px] px-[22px] mb-6">
-        <span className="font-sans font-normal text-[24px] leading-none tracking-[-0.04em] text-[#000000]">
+      {/* 1. Sub-label Pill */}
+      <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px] mb-4 md:mb-6">
+        <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
           In action
         </span>
       </div>
  
-      {/* 2. H2 Header Title: Geist SemiBold, 72px, #000000, 100% line height, -4% tracking */}
-      <div className="w-full max-w-[900px] px-6 text-center mb-16 z-20">
-        <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
-          A glimpse of the wow<br />moment parents talk about.
+      {/* 2. H2 Header Title */}
+      <div className="w-full max-w-[900px] px-6 text-center mb-8 md:mb-16 z-20">
+        <h2 className="font-sans font-semibold text-[28px] md:text-[50px] lg:text-[72px] leading-[1.1] md:leading-[100%] tracking-[-0.04em] text-[#000000]">
+          <span className="hidden md:inline">A glimpse of the wow<br />moment parents talk about.</span>
+          <span className="md:hidden">A glimpse of the wow moment parents talk about.</span>
         </h2>
       </div>
  
       {/* 3. Vertical Columns Side-by-Side Marquee Container */}
-      <div className="relative flex h-[900px] w-full max-w-[1300px] px-6 md:px-12 xl:px-0 flex-row gap-6 items-center justify-center overflow-hidden">
+      <div className="relative flex h-[500px] md:h-[700px] xl:h-[900px] w-full max-w-[1300px] px-6 md:px-8 lg:px-12 xl:px-0 flex-row gap-4 md:gap-6 items-center justify-center overflow-hidden">
         
-        {/* Left Column: Normal Scroll Speed (25s) */}
-        <div className="flex flex-col h-full w-[407px] overflow-hidden">
-          <Marquee vertical pauseOnHover className="[--duration:25s] [--gap:1.5rem]" repeat={3}>
+        {/* Left Column: Normal Scroll Speed (25s) - Hidden on mobile */}
+        <div className="hidden md:flex flex-col h-full w-1/3 max-w-[407px] overflow-hidden">
+          <Marquee vertical pauseOnHover className="[--duration:25s] [--gap:1rem] md:[--gap:1.5rem]" repeat={3}>
             {column1.map((img, idx) => (
               <MarqueeImage key={`col1-${idx}`} src={img.src} alt={img.alt} />
             ))}
           </Marquee>
         </div>
  
-        {/* Middle Column: Reverse Scroll Speed (25s) */}
-        <div className="flex flex-col h-full w-[407px] overflow-hidden">
-          <Marquee vertical reverse pauseOnHover className="[--duration:25s] [--gap:1.5rem]" repeat={3}>
+        {/* Middle Column: Reverse Scroll Speed on Desktop (Hidden on mobile) */}
+        <div className="hidden md:flex flex-col h-full w-1/3 max-w-[407px] overflow-hidden">
+          <Marquee vertical reverse pauseOnHover className="[--duration:25s] [--gap:1rem] md:[--gap:1.5rem]" repeat={3}>
             {column2.map((img, idx) => (
               <MarqueeImage key={`col2-${idx}`} src={img.src} alt={img.alt} />
             ))}
           </Marquee>
         </div>
  
-        {/* Right Column: Normal Scroll Speed (25s) */}
-        <div className="flex flex-col h-full w-[407px] overflow-hidden">
-          <Marquee vertical pauseOnHover className="[--duration:25s] [--gap:1.5rem]" repeat={3}>
+        {/* Right Column: Normal Scroll Speed (25s) - Hidden on mobile */}
+        <div className="hidden md:flex flex-col h-full w-1/3 max-w-[407px] overflow-hidden">
+          <Marquee vertical pauseOnHover className="[--duration:25s] [--gap:1rem] md:[--gap:1.5rem]" repeat={3}>
             {column3.map((img, idx) => (
               <MarqueeImage key={`col3-${idx}`} src={img.src} alt={img.alt} />
             ))}
           </Marquee>
         </div>
+
+        {/* Mobile Single Column Marquee (Hidden on tablet/desktop) */}
+        <div className="flex md:hidden flex-col h-full w-full max-w-[400px] overflow-hidden">
+          <Marquee vertical pauseOnHover className="[--duration:20s] [--gap:1rem]" repeat={3}>
+            {mobileColumn.map((img, idx) => (
+              <MarqueeImage key={`mobile-${idx}`} src={img.src} alt={img.alt} />
+            ))}
+          </Marquee>
+        </div>
  
         {/* Premium Vignette Fade-out Overlay at the top and bottom of the scrolling columns */}
-        <div className="absolute inset-x-0 top-0 h-[80px] bg-gradient-to-b from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
-        <div className="absolute inset-x-0 bottom-0 h-[80px] bg-gradient-to-t from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-[60px] md:h-[80px] bg-gradient-to-b from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-[60px] md:h-[80px] bg-gradient-to-t from-[#FFFFFF] to-transparent z-10 pointer-events-none" />
       </div>
 
     </section>

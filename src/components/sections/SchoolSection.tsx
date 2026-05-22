@@ -35,7 +35,7 @@ export default function SchoolSection() {
           </div>
 
           {/* Heading: Geist SemiBold, 72px, leading 100%, tracking -4%, white text */}
-          <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF] mb-8">
+          <h2 className="font-sans font-semibold text-[40px] md:text-[50px] lg:text-[72px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF] mb-8">
             Bring FrameForge to your school
           </h2>
 

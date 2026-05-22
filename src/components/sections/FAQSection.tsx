@@ -19,19 +19,19 @@ function FAQItem({ question, answer }: FAQItemProps) {
 
   return (
     <div 
-      className={`w-full bg-[#FFFFFF] rounded-[20px] shadow-sm overflow-hidden transition-all duration-300 border border-gray-100 ${inter.className}`}
+      className={`w-full bg-[#FFFFFF] rounded-[16px] md:rounded-[20px] shadow-sm overflow-hidden transition-all duration-300 border border-gray-100 ${inter.className}`}
     >
       {/* Accordion Header / Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex justify-between items-center py-6 px-8 text-left hover:bg-gray-50/50 transition-colors focus:outline-none cursor-pointer select-none"
+        className="w-full flex justify-between items-center py-4 px-6 md:py-6 md:px-8 text-left hover:bg-gray-50/50 transition-colors focus:outline-none cursor-pointer select-none"
       >
-        {/* Question: Inter SemiBold/Bold, 18px, Black */}
-        <span className="font-semibold text-[18px] md:text-[20px] text-[#000000] tracking-tight">
+        {/* Question: Inter SemiBold/Bold */}
+        <span className="font-semibold text-[13px] min-[375px]:text-[14px] md:text-[20px] text-[#000000] tracking-tight pr-4">
           {question}
         </span>
         
-        {/* Chevron Chevron down icon rotating on active expand */}
+        {/* Chevron down icon rotating on active expand (Hidden on mobile as per screenshot) */}
         <svg
           width="20"
           height="20"
@@ -41,7 +41,7 @@ function FAQItem({ question, answer }: FAQItemProps) {
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className={`text-slate-500 shrink-0 transition-transform duration-300 ${
+          className={`hidden md:block text-slate-500 shrink-0 transition-transform duration-300 w-[16px] h-[16px] md:w-[20px] md:h-[20px] ${
             isOpen ? "rotate-180" : ""
           }`}
         >
@@ -52,10 +52,10 @@ function FAQItem({ question, answer }: FAQItemProps) {
       {/* Accordion Content Panel with Smooth Height Animation */}
       <div
         className={`transition-all duration-300 ease-in-out overflow-hidden ${
-          isOpen ? "max-h-[300px] border-t border-gray-50" : "max-h-0"
+          isOpen ? "max-h-[500px] border-t border-gray-50" : "max-h-0"
         }`}
       >
-        <div className="py-6 px-8 text-[15px] leading-[160%] text-[#64748B] font-medium">
+        <div className="py-4 px-6 md:py-6 md:px-8 text-[12px] md:text-[15px] leading-[160%] text-[#64748B] font-medium">
           {answer}
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section className="relative w-full pt-24 pb-32 overflow-hidden select-none" style={{ backgroundColor: "#F0F0F0" }}>
+    <section className="relative w-full pt-12 md:pt-24 pb-16 md:pb-32 overflow-hidden select-none" style={{ backgroundColor: "#F0F0F0" }}>
       {/* Figma Spec: Subtle dot-pattern texture overlay blending with background color */}
       <div 
         className="absolute inset-0 pointer-events-none z-0"
@@ -103,16 +103,16 @@ export default function FAQSection() {
       />
       
       <div className="relative z-10 w-full flex flex-col items-center">
-        {/* 1. Sub-label Pill: Geist Regular, 24px, #000000, 100% line height, -4% tracking */}
-        <div className="flex items-center justify-center rounded-[31px] bg-[#EAEAEA] py-[8px] px-[22px] mb-6">
-          <span className="font-sans font-normal text-[24px] leading-none tracking-[-0.04em] text-[#000000]">
+        {/* 1. Sub-label Pill */}
+        <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px] mb-4 md:mb-6">
+          <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
             How it works
           </span>
         </div>
 
-        {/* 2. Main Title Heading: Geist SemiBold, 72px, #000000, 100% line height, -4% tracking */}
-        <div className="w-full max-w-[900px] px-6 text-center mb-16">
-          <h2 className="font-sans font-semibold text-[40px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
+        {/* 2. Main Title Heading */}
+        <div className="w-full max-w-[900px] px-4 md:px-6 text-center mb-8 md:mb-16">
+          <h2 className="font-sans font-semibold text-[24px] min-[375px]:text-[28px] md:text-[50px] lg:text-[72px] leading-[1.2] md:leading-[100%] tracking-[-0.04em] text-[#000000]">
             Everything parents ask<br />before generating.
           </h2>
         </div>

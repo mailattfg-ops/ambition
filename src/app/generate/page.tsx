@@ -37,19 +37,37 @@ function GenerateRouter() {
     <div className={`min-h-screen bg-[#FFFFFF] flex flex-col font-sans ${inter.variable}`}>
       
       {/* Top Header with Figma Styling */}
-      <header className="relative w-full bg-[#FFFFFF] border-b border-[#EAEAEA] z-50 shadow-[0_4px_30px_rgba(0,0,0,0.02)]">
-        <div className="max-w-[1280px] mx-auto px-6 h-[85px] flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-[11.54px] group">
-            <Image src="/assets/icons/generate_ambition.svg" alt="Ambition by FrameForge" width={208} height={54} className="object-contain group-hover:opacity-90 transition-opacity" priority />
+      <header className="relative w-full bg-[#FFFFFF] md:border-b md:border-[#EAEAEA] z-50 md:shadow-[0_4px_30px_rgba(0,0,0,0.02)]">
+        <div className="max-w-[1280px] mx-auto px-6 h-[70px] md:h-[85px] flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-[11.54px] group mt-4 md:mt-0">
+            {/* Desktop/Tablet Logo */}
+            <Image 
+              src="/assets/icons/generate_ambition.svg" 
+              alt="Ambition by FrameForge" 
+              width={208} 
+              height={54} 
+              className="hidden md:block w-[150px] lg:w-[180px] xl:w-[208px] h-auto object-contain group-hover:opacity-90 transition-opacity" 
+              priority 
+            />
+            {/* Mobile Logo */}
+            <Image 
+              src="/assets/images/responsive/generate_page_logo.png" 
+              alt="Ambition by FrameForge" 
+              width={140} 
+              height={36} 
+              className="block md:hidden w-[140px] sm:w-[160px] h-auto object-contain group-hover:opacity-90 transition-opacity" 
+              priority
+              unoptimized 
+            />
           </Link>
           <nav 
-            className="hidden md:flex items-center gap-10 font-medium tracking-[-0.04em]"
-            style={{ fontFamily: 'Geist, sans-serif', fontSize: '20px', color: '#121836' }}
+            className="hidden md:flex items-center gap-4 lg:gap-6 xl:gap-10 font-medium tracking-[-0.04em]"
+            style={{ fontFamily: 'Geist, sans-serif', color: '#121836' }}
           >
-            <Link href="#popular" className="hover:opacity-60 transition-opacity">Most Popular</Link>
-            <Link href="#testimonials" className="hover:opacity-60 transition-opacity">Testimonials</Link>
-            <button className="bg-[#000000] text-white rounded-full px-6 py-3 font-semibold text-[14px] hover:bg-black/90 active:scale-95 transition-all shadow-sm flex items-center gap-2 font-sans tracking-normal">
-              <Image src="/assets/icons/starts.png" alt="" width={16} height={16} />
+            <Link href="#popular" className="text-[14px] lg:text-[16px] xl:text-[20px] hover:opacity-60 transition-opacity whitespace-nowrap">Most Popular</Link>
+            <Link href="#testimonials" className="text-[14px] lg:text-[16px] xl:text-[20px] hover:opacity-60 transition-opacity whitespace-nowrap">Testimonials</Link>
+            <button className="bg-[#000000] text-white rounded-full px-4 lg:px-5 xl:px-6 py-2 lg:py-2.5 xl:py-3 font-semibold text-[12px] lg:text-[13px] xl:text-[14px] hover:bg-black/90 active:scale-95 transition-all shadow-sm flex items-center gap-1.5 lg:gap-2 font-sans tracking-normal whitespace-nowrap shrink-0">
+              <Image src="/assets/icons/starts.png" alt="" width={16} height={16} className="w-[14px] h-[14px] xl:w-[16px] xl:h-[16px]" />
               <span>Generate Free AI Frame</span>
             </button>
           </nav>

@@ -53,25 +53,39 @@ export default function CareersSection() {
   ];
 
   return (
-    <section className="relative w-full flex flex-col items-center pt-24 pb-32 bg-[#FFFFFF] overflow-hidden select-none">
+    <section className="relative w-full flex flex-col items-center pt-12 md:pt-24 pb-16 md:pb-32 bg-[#FFFFFF] overflow-hidden select-none">
       
-      {/* 1. Sub-label Pill: Geist Regular, 24px, #000000, 100% line height, -4% tracking */}
-      <div className="flex items-center justify-center rounded-[31px] bg-[#EAEAEA] py-[8px] px-[22px] mb-6">
-        <span className="font-sans font-normal text-[24px] leading-none tracking-[-0.04em] text-[#000000]">
-          How it works
+      {/* 1. Sub-label Pill */}
+      <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px] mb-4 md:mb-6">
+        <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
+          Dream Big
         </span>
       </div>
 
-      {/* 2. Main Title Heading: Geist SemiBold, 72px, #000000, 100% line height, -4% tracking */}
-      <div className="w-full max-w-[900px] px-6 text-center mb-16">
-        <h2 className="font-sans font-semibold text-[44px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000]">
+      {/* 2. Main Title Heading */}
+      <div className="w-full max-w-[900px] px-6 text-center mb-8 md:mb-16">
+        <h2 className="font-sans font-semibold text-[32px] md:text-[50px] lg:text-[72px] leading-[1.1] md:leading-[100%] tracking-[-0.04em] text-[#000000]">
           Our Most<br />Popular careers
         </h2>
       </div>
 
-      {/* 3. Reusable Modular CareerCard Flex List with overflow scroll on mobile */}
-      <div className="w-full overflow-x-auto no-scrollbar scroll-smooth flex justify-start xl:justify-center items-center py-6 px-6 md:px-12 xl:px-0">
-        <div className="flex gap-6 items-center shrink-0 xl:mx-auto">
+      {/* 3. Reusable Modular CareerCard Flex List */}
+      <div className="w-full flex justify-center py-6">
+        {/* Mobile: 2x2 grid (4 cards) */}
+        <div className="grid grid-cols-2 gap-4 px-4 w-full md:hidden max-w-[500px]">
+          {careers.slice(0, 4).map((career, index) => (
+            <CareerCard
+              key={index}
+              title={career.title}
+              subtitle={career.subtitle}
+              imageSrc={career.imageSrc}
+              gradientColors={career.gradientColors}
+            />
+          ))}
+        </div>
+
+        {/* Tablet & Desktop: Flex row of 5 items, centered and overflowing the edges (no scrollbar) */}
+        <div className="hidden md:flex gap-[16px] lg:gap-[20px] xl:gap-[24px] items-center shrink-0 w-[max-content] justify-center">
           {careers.map((career, index) => (
             <CareerCard
               key={index}
@@ -85,18 +99,18 @@ export default function CareersSection() {
       </div>
 
       {/* 4. "View all Careers" Call-To-Action Button */}
-      <div className="w-full flex justify-center mt-12">
+      <div className="w-full flex justify-center mt-8 md:mt-12">
         <button
-          className="flex items-center justify-center bg-[#000000] rounded-[25.84px] py-[12px] px-[28px] gap-[10px] hover:bg-black/90 hover:scale-[1.04] active:scale-95 transition-all duration-300 shadow-md cursor-pointer select-none"
+          className="flex items-center justify-center bg-[#000000] rounded-[37.5px] md:rounded-[25.84px] py-[10px] md:py-[12px] px-[20px] md:px-[28px] gap-[8px] md:gap-[10px] hover:bg-black/90 hover:scale-[1.04] active:scale-95 transition-all duration-300 shadow-md cursor-pointer select-none"
         >
           <Image
             src="/assets/icons/starts.png"
             alt="Stars icon"
             width={18}
             height={18}
-            className="shrink-0 object-contain"
+            className="shrink-0 object-contain w-[16px] h-[16px] md:w-[18px] md:h-[18px]"
           />
-          <span className="font-sans font-semibold text-[18px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF]">
+          <span className="font-sans font-semibold text-[15px] md:text-[18px] leading-[100%] tracking-[-0.04em] text-[#FFFFFF]">
             View all Careers
           </span>
         </button>

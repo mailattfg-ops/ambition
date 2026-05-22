@@ -9,7 +9,7 @@ export default function HowItWorksSection() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (containerRef.current) {
+      if (window.innerWidth >= 768 && containerRef.current) {
         const parentWidth = containerRef.current.parentElement?.clientWidth || window.innerWidth;
         // Calculate scale to fit 1728px width, clamped between 0.2 and 1
         const newScale = Math.max(0.2, Math.min(parentWidth / 1728, 1));
@@ -32,26 +32,58 @@ export default function HowItWorksSection() {
     <section className="relative flex flex-col items-center pt-12 pb-8 bg-transparent w-full overflow-hidden">
       
       {/* Structural Layer 1: Mini Section Label */}
-      <div className="flex items-center justify-center w-[168px] h-[43px] rounded-[31px] bg-[#EBEBEB] py-[6px] px-[18px]">
-        <span className="font-sans font-normal text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
+      <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px]">
+        <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
           How it works
         </span>
       </div>
 
       {/* Structural Layer 2: Main Section Title */}
-      <div className="w-full max-w-[882px] h-auto mt-[16px] flex items-center justify-center">
-        <h2 className="font-sans font-semibold text-[48px] md:text-[72px] leading-[100%] tracking-[-0.04em] text-[#000000] text-center">
-          Three simple steps. Less than a minute.
+      <div className="w-full max-w-[882px] px-6 md:px-0 h-auto mt-[16px] md:mt-[24px] flex items-center justify-center">
+        <h2 className="font-sans font-semibold text-[32px] md:text-[50px] lg:text-[72px] leading-[1.1] md:leading-[100%] tracking-[-0.04em] text-[#000000] text-center">
+          Three simple steps. <br className="block md:hidden" />Less than a minute.
         </h2>
       </div>
 
+      {/* Mobile Vertical Stack Layout (hidden on desktop) */}
+      <div className="flex md:hidden flex-col items-center w-full px-6 gap-4 mt-8">
+        <Image 
+          src="/assets/images/responsive/card_1.png" 
+          alt="01 Upload a Photo" 
+          width={400} 
+          height={480} 
+          className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm" 
+        />
+        <Image 
+          src="/assets/images/responsive/card_2.png" 
+          alt="02 Pick the Dream" 
+          width={400} 
+          height={480} 
+          className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm" 
+        />
+        <Image 
+          src="/assets/images/responsive/card_3.png" 
+          alt="03 Get the Frame" 
+          width={400} 
+          height={480} 
+          className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm" 
+        />
+        <Image 
+          src="/assets/images/responsive/card_4.png" 
+          alt="04 Get frame delivered" 
+          width={400} 
+          height={480} 
+          className="w-full max-w-[340px] h-auto object-contain drop-shadow-sm" 
+        />
+      </div>
+
       {/* 
-        Structural Layer 3: Antigravity Spatial Mapping Bounding Canvas
+        Structural Layer 3: Antigravity Spatial Mapping Bounding Canvas (Desktop Only)
         Using a locked 1728px relative viewport that scales perfectly down on smaller screens.
       */}
       <div 
         ref={containerRef}
-        className="w-full mt-[30px] flex justify-center items-start overflow-hidden pb-0"
+        className="hidden md:flex w-full mt-[50px] justify-center items-start overflow-hidden pb-0"
         style={{ height: `${670 * scale}px` }}
       >
         <div 
@@ -74,8 +106,8 @@ export default function HowItWorksSection() {
                 src="/assets/images/upload_a_photo.png" 
                 alt="01 Upload a Photo" 
                 fill 
+                sizes="378px"
                 className="object-contain" 
-                priority
               />
             </div>
           </div>
@@ -93,8 +125,8 @@ export default function HowItWorksSection() {
                 src="/assets/images/pick_the_dream.png" 
                 alt="02 Pick the Dream" 
                 fill 
+                sizes="343px"
                 className="object-contain" 
-                priority
               />
             </div>
           </div>
@@ -112,8 +144,8 @@ export default function HowItWorksSection() {
                 src="/assets/images/get_the_frame.png" 
                 alt="03 Get the Frame" 
                 fill 
+                sizes="343px"
                 className="object-contain" 
-                priority
               />
             </div>
           </div>
@@ -131,8 +163,8 @@ export default function HowItWorksSection() {
                 src="/assets/images/get_frame_delivered.png" 
                 alt="04 Get frame delivered" 
                 fill 
+                sizes="378px"
                 className="object-contain" 
-                priority
               />
             </div>
           </div>
