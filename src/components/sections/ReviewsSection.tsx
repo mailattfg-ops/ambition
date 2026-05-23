@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import { Inter } from "next/font/google";
@@ -109,18 +109,6 @@ export default function ReviewsSection() {
         </div>
       </div>
 
-
-
-      {/* Embedded CSS for hiding scrollbars */}
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
 
     </section>
   );

@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import { CareerCard } from "./CareerCard";
@@ -115,17 +115,6 @@ export default function CareersSection() {
           </span>
         </button>
       </div>
-
-      {/* Embedded CSS for hiding browser scrollbars on the carousel */}
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
 
     </section>
   );

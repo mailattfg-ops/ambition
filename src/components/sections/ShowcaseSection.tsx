@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import { Inter } from "next/font/google";
@@ -131,17 +131,6 @@ export default function ShowcaseSection() {
           </span>
         </button>
       </div>
-
-      {/* Embedded CSS for hiding browser scrollbars */}
-      <style jsx global>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
 
     </section>
   );

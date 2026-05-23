@@ -1,4 +1,4 @@
-"use client";
+
 
 import Image from "next/image";
 import Link from "next/link";
@@ -63,7 +63,6 @@ export default function Footer() {
               alt="School portraits composite showcase"
               fill
               className="object-contain"
-              priority
             />
           </div>
 
@@ -84,7 +83,6 @@ export default function Footer() {
                 width={208}
                 height={54.43}
                 className="w-[208px] h-[54.43px] md:w-[125px] md:h-[32px] lg:w-[166px] lg:h-[43.5px] xl:w-[208px] xl:h-[54.43px] object-contain"
-                priority
               />
             </div>
             <p className="font-sans font-normal text-[14.4px] md:text-[11px] lg:text-[13px] xl:text-[16px] leading-[150%] tracking-[-0.02em] text-[#FFFFFF]/70 select-none">
