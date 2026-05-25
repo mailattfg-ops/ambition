@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import { useGenerateContext } from "./GenerateContext";
 import { CATEGORIES, CAREER_ROLES } from "@/lib/ambitionsData";
 
@@ -14,6 +15,18 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
 
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
+  };
+
+  const categoryContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollCategories = (direction: "left" | "right") => {
+    if (categoryContainerRef.current) {
+      const scrollAmount = 300;
+      categoryContainerRef.current.scrollBy({
+        left: direction === "left" ? -scrollAmount : scrollAmount,
+        behavior: "smooth"
+      });
+    }
   };
 
   const handleContinueToStep5 = () => {
@@ -42,7 +55,7 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
             Pick the dream ambition
           </h1>
           <p className="font-sans font-normal text-[13px] md:text-[16px] sm:text-[18px] leading-none tracking-[-0.03em] text-[#64748B]">
-            100+ careers across 13 categories.
+            100+ careers across 12 categories.
           </p>
         </div>
 
@@ -66,9 +79,17 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
 
       <div className="flex flex-col gap-6 w-full">
         {/* Category Carousel */}
-        <div className="w-full">
+        <div className="w-full flex items-center gap-2 md:gap-4 relative group">
+          <button 
+            onClick={() => scrollCategories("left")} 
+            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-black transition-colors z-10 hidden md:flex"
+            aria-label="Previous categories"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+
           {/* Horizontal Scrollbar */}
-          <div className="w-full overflow-x-auto no-scrollbar scroll-smooth flex justify-start items-center gap-3 md:gap-5 py-2 md:py-4 select-none">
+          <div ref={categoryContainerRef} className="w-full overflow-x-auto no-scrollbar scroll-smooth flex justify-start items-center gap-3 md:gap-5 py-2 md:py-4 select-none">
             {CATEGORIES.map((cat) => {
               const isSelected = selectedCategory === cat.id;
               return (
@@ -105,13 +126,21 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
               );
             })}
           </div>
+
+          <button 
+            onClick={() => scrollCategories("right")} 
+            className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-white border border-[#E2E8F0] shadow-sm flex items-center justify-center text-slate-600 hover:bg-slate-50 hover:text-black transition-colors z-10 hidden md:flex"
+            aria-label="Next categories"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
         </div>
 
         {/* Career Roles Horizontal Flex Layout */}
         <div className="w-full mt-2 md:mt-4 select-none">
 
           {activeRoles.length > 0 ? (
-            <div className="grid grid-cols-2 lg:flex lg:flex-nowrap gap-3 md:gap-6 lg:justify-between w-full overflow-x-hidden lg:overflow-x-auto no-scrollbar py-2 md:py-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6 w-full py-2 md:py-4">
               {activeRoles.map((career) => {
                 const isSelected = selectedCareer === career.id;
                 return (
@@ -121,7 +150,7 @@ export default function StepFour({ onNext }: { onNext: () => void }) {
                       setSelectedCareer(career.id);
                       setSelectedAttire(null); // Reset attire choice on role switch
                     }}
-                    className={`relative w-full lg:w-[280px] h-[220px] md:h-[340px] rounded-[16px] md:rounded-[20px] overflow-hidden lg:shrink-0 select-none group transition-all duration-300 cursor-pointer ${
+                    className={`relative w-full h-[240px] md:h-[280px] lg:h-[340px] rounded-[16px] md:rounded-[20px] overflow-hidden select-none group transition-all duration-300 cursor-pointer ${
                       isSelected
                         ? "border-[3px] md:border-[4px] border-[#A855F7] shadow-[0_0_25px_rgba(168,85,247,0.6)] lg:scale-[1.02]"
                         : "border border-transparent hover:scale-[1.01] hover:shadow-xl"

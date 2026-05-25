@@ -28,7 +28,7 @@ interface CareerCardProps {
 export function CareerCard({ title, subtitle, imageSrc, gradientColors, className = "" }: CareerCardProps & { className?: string }) {
   return (
     <div 
-      className={`relative w-full aspect-[342/460] md:w-[200px] md:h-[269px] lg:w-[240px] lg:h-[323px] xl:w-[280px] xl:h-[376px] 2xl:w-[342px] 2xl:h-[460px] md:aspect-auto md:shrink-0 rounded-[12px] md:rounded-[16px] lg:rounded-[20px] overflow-hidden select-none group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${className}`}
+      className={`relative w-full aspect-[342/460] rounded-[12px] md:rounded-[16px] lg:rounded-[20px] overflow-hidden select-none group transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl ${className}`}
       style={{
         boxShadow: "0 10px 30px -15px rgba(0,0,0,0.3)"
       }}

@@ -42,7 +42,7 @@ export default function StepTwo({ onNext }: { onNext: () => void }) {
   };
 
   const handleContinue = () => {
-    if (!studentName || !gender || !schoolName || !whatsapp) {
+    if (!studentName || !gender || !whatsapp) {
       alert("Please fill in all the details to continue.");
       return;
     }
@@ -157,7 +157,7 @@ export default function StepTwo({ onNext }: { onNext: () => void }) {
             {/* Input 3: School Name */}
             <div className="w-full flex flex-col gap-1.5 md:gap-1 lg:gap-1 items-start mt-0.5 md:mt-0">
               <label className="font-sans font-medium text-[12px] md:text-[12px] lg:text-[13px] text-[#64748B] select-none">
-                School Name
+                School Name (Optional)
               </label>
               <input
                 type="text"

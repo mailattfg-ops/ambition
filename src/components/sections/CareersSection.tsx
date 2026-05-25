@@ -54,7 +54,7 @@ export default function CareersSection() {
 
   return (
     <section className="relative w-full flex flex-col items-center pt-12 md:pt-24 pb-16 md:pb-32 bg-[#FFFFFF] overflow-hidden select-none">
-      
+
       {/* 1. Sub-label Pill */}
       <div className="flex items-center justify-center w-auto h-[30px] md:h-[43px] rounded-[31px] bg-[#EBEBEB] py-[4px] md:py-[6px] px-[14px] md:px-[18px] mb-4 md:mb-6">
         <span className="font-sans font-normal text-[13px] md:text-[24px] leading-[100%] tracking-[-0.04em] text-[#000000]">
@@ -84,8 +84,8 @@ export default function CareersSection() {
           ))}
         </div>
 
-        {/* Tablet & Desktop: Flex row of 5 items, centered and overflowing the edges (no scrollbar) */}
-        <div className="hidden md:flex gap-[16px] lg:gap-[20px] xl:gap-[24px] items-center shrink-0 w-[max-content] justify-center">
+        {/* Tablet & Desktop: Flex row of 5 items, centered and scaled to fit the window */}
+        <div className="hidden md:flex gap-[6px] lg:gap-[10px] xl:gap-[12px] items-center w-full max-w-full px-[6px] lg:px-[10px] xl:px-[12px] mx-auto justify-center">
           {careers.map((career, index) => (
             <CareerCard
               key={index}
@@ -93,6 +93,7 @@ export default function CareersSection() {
               subtitle={career.subtitle}
               imageSrc={career.imageSrc}
               gradientColors={career.gradientColors}
+              className="flex-1 max-w-[600px]"
             />
           ))}
         </div>

@@ -25,7 +25,7 @@ export default function StepThree({ onNext }: { onNext: () => void }) {
             Pick the dream ambition
           </h1>
           <p className="font-sans font-normal text-[13px] md:text-[16px] sm:text-[18px] leading-none tracking-[-0.03em] text-[#64748B]">
-            100+ careers across 13 categories.
+            100+ careers across 12 categories.
           </p>
         </div>
 
